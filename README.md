@@ -12,9 +12,9 @@ app. Netflix remote is the way to go! 🚀.
 
 Just install the app by clicking on one of these links
 
-- [Mac OS]()
-- [Linux]()
-- [Windows]()
+- [Mac OS](https://github.com/nmannaii/netflix-remote/releases/download/1.0.0/netflix-remote-v1.0.0-macos)
+- [Linux](https://github.com/nmannaii/netflix-remote/releases/download/1.0.0/netflix-remote-v1.0.0-linux)
+- [Windows](https://github.com/nmannaii/netflix-remote/releases/download/1.0.0/netflix-remote-v1.0.0-win.exe)
 
 ## App screenshot
 <div align="center">
