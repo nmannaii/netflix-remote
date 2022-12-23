@@ -1,0 +1,25 @@
+{
+  "name": "netflix-remote-server",
+  "version": "1.0.0",
+  "description": "server to remote control netflix web",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "pkg": {
+    "assets": ["statics/**/*"],
+    "outputPath": "dist"
+  },
+  "author": "Najmedine Mannaii",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "boxen": "^5.1.2",
+    "chalk": "^4.1.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "figlet": "^1.5.2",
+    "ip": "^1.1.8",
+    "robotjs": "^0.6.0"
+  }
+}
