@@ -4,7 +4,7 @@
   "description": "server to remote control netflix web",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "npx nodemon server.js"
   },
   "pkg": {
     "assets": ["statics/**/*"],
