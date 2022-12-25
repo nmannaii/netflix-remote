@@ -6,4 +6,3 @@ services:
     ports:
       - "8080:9876"
     restart: on-failure
-    
