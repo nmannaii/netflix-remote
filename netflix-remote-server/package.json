@@ -1,25 +1,29 @@
 {
-  "name": "netflix-remote-server",
+  "name": "netflix-remote",
   "version": "1.0.0",
   "description": "server to remote control netflix web",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
-  },
-  "pkg": {
-    "assets": ["statics/**/*"],
-    "outputPath": "dist"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "author": "Najmedine Mannaii",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.1",
-    "boxen": "^5.1.2",
-    "chalk": "^4.1.2",
     "cors": "^2.8.5",
+    "electron-squirrel-startup": "^1.0.0",
     "express": "^4.18.2",
-    "figlet": "^1.5.2",
-    "ip": "^1.1.8",
     "robotjs": "^0.6.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.4",
+    "@electron-forge/maker-deb": "^6.0.4",
+    "@electron-forge/maker-rpm": "^6.0.4",
+    "@electron-forge/maker-squirrel": "^6.0.4",
+    "@electron-forge/maker-zip": "^6.0.4",
+    "@electron-forge/publisher-github": "^6.0.4",
+    "electron": "^22.0.0"
   }
 }
