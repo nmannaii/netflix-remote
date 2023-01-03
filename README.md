@@ -10,16 +10,17 @@ When you want to relax and eat your popcorn 🍿 while you watch your favorite m
 and you want to control your Netflix on your laptop or PC from your smartphone without installing a third party
 app. Netflix remote is the way to go! 🚀.
 
-Just install the app by clicking on one of these links
+Just install the app by clicking on one of this link
 
-- [Mac OS](https://github.com/nmannaii/netflix-remote/releases/download/1.0.0/netflix-remote-v1.0.0-macos)
-- [Linux](https://github.com/nmannaii/netflix-remote/releases/download/1.0.0/netflix-remote-v1.0.0-linux)
-- [Windows](https://github.com/nmannaii/netflix-remote/releases/download/1.0.0/netflix-remote-v1.0.0-win.exe)
+- [Windows](https://github.com/nmannaii/netflix-remote/releases/download/v1.0.0/netflix-remote-1.0.0.Setup.exe)
 
 ## App screenshot
 <div align="center">
 <br><br>
     <img src="media/ui-screenshot.png" width="320" alt="netflix remote">
+<br><br>
+<br><br>
+    <img src="media/desktop-app-screenshot.png" width="320" alt="netflix remote">
 <br><br>
 </div>
 
