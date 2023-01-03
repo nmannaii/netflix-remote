@@ -4,7 +4,7 @@
 <br><br>
 </div>
 
-> Basic Netflix web remote control that can run anywhere
+> Basic Netflix web remote control that can run anywhere (windows for now 😇)
 
 When you want to relax and eat your popcorn 🍿 while you watch your favorite movie or show, 
 and you want to control your Netflix on your laptop or PC from your smartphone without installing a third party
