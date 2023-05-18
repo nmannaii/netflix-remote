@@ -15,9 +15,14 @@ jobs:
         with:
           node-version: 16
       - run: cd netflix-remote-server 
-      - run: npm install
-      - run: npm run make
+      - name: "Install dependencies"
+        working-directory: .\netflix-remote-server 
+        run: npm install
+      - name: "build binary"
+        working-directory: .\netflix-remote-server
+        run: npm run make
       - name: "Publish release to github"
+        working-directory: .\netflix-remote-server
         run: npm run publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
