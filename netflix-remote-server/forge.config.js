@@ -9,6 +9,7 @@ module.exports = {
             config: {
                 setupIcon: './icons/win&mac/icon.ico',
                 loadingGif: './remote-ctrl-icon.png',
+                compression: "maximum",
             },
         },
         {

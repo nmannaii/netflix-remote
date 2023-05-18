@@ -1,13 +1,143 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="utf-8">
-  <title>Netflix Remote</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <style>@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}8%,24%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}:root{--fa-style-family-brands:"Font Awesome 6 Brands";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:block;src:url(../webfonts/fa-brands-400.woff2) format("woff2"),url(../webfonts/fa-brands-400.ttf) format("truetype")}:root{--fa-font-regular:normal 400 1em/1 "Font Awesome 6 Free"}@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:400;font-display:block;src:url(../webfonts/fa-regular-400.woff2) format("woff2"),url(../webfonts/fa-regular-400.ttf) format("truetype")}:root{--fa-style-family-classic:"Font Awesome 6 Free";--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Free"}@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:900;font-display:block;src:url(../webfonts/fa-solid-900.woff2) format("woff2"),url(../webfonts/fa-solid-900.ttf) format("truetype")}</style><link href="assets/font-awesome/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="assets/font-awesome/css/all.min.css"></noscript>
-<style>@font-face{font-family:Montserrat Alternates;src:url(MontserratAlternates-Regular.2d4da050529ff9e0.ttf);font-weight:400}@font-face{font-family:Montserrat Alternates;src:url(MontserratAlternates-Medium.5c433a498b8b01b1.ttf);font-weight:500}@font-face{font-family:Montserrat Alternates;src:url(MontserratAlternates-SemiBold.efe2e84fe518325e.ttf);font-weight:600}@font-face{font-family:Montserrat Alternates;src:url(MontserratAlternates-Bold.0f4f51f93438aac3.ttf);font-weight:700}body{font-family:Montserrat Alternates,sans-serif;font-weight:400;font-size:14px}body,html{margin:0;height:100%;touch-action:manipulation}*{box-sizing:border-box;touch-action:manipulation}</style><link rel="stylesheet" href="styles.15305c135d737cba.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.15305c135d737cba.css"></noscript></head>
-<body>
-  <app-root></app-root>
-<script src="runtime.4e158d8bc552a66b.js" type="module"></script><script src="polyfills.d09f9549d5f0be76.js" type="module"></script><script src="main.1b6f67ed56fe6a0a.js" type="module"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-</body></html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Netflix Remote</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="assets/netflix-remote.png" width="250">
+
+        <div class="remote-grid">
+            <div class="remote-cell danger" onclick="showTouchpad()">
+                <i class="fas fa-mouse"></i>
+            </div>
+            <div class="remote-cell light" onclick="buttonClick('up')">
+                <i class="fas fa-arrow-up"></i>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('f')">
+                <i class="fas fa-expand"></i>
+            </div>
+
+            <div class="remote-cell light" onclick="buttonClick('left')">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="remote-cell light" onclick="buttonClick('enter')">
+                <i class="fa-regular fa-circle-dot"></i>
+            </div>
+            <div class="remote-cell light" onclick="buttonClick('right')">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+            <div class="remote-cell" onclick="buttonClick('escape')">
+                ESC
+            </div>
+            <div class="remote-cell light" onclick="buttonClick('down')">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('s')">
+                <i class="fa-solid fa-forward-fast"></i>
+                Skip
+            </div>
+
+            <div class="remote-cell" onclick="buttonClick('left')">
+                <i class="fa-solid fa-backward"></i>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('space')">
+                <span>
+                    <i class="fa-solid fa-pause"></i>
+                    <i class="fa-solid fa-play"></i>
+                </span>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('right')">
+                <i class="fa-solid fa-forward"></i>
+            </div>
+
+            <div class="remote-cell" onclick="buttonClick('audio_vol_down')">
+                <i class="fa-solid fa-volume-low"></i>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('audio_mute')">
+                <i class="fa-solid fa-volume-xmark"></i>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('audio_vol_up')">
+                <i class="fa-solid fa-volume-high"></i>
+            </div>
+        </div>
+    </div>
+    <div class="mouse-touchpad">
+        <button class="close">
+            <i class="fas fa-xmark" id="closeIcon"></i>
+        </button>
+    </div>
+
+
+    <script src="assets/socket.io.min.js"></script>
+    <script src="assets/hammer.min.js"></script>
+    <script>
+        var socket = io();
+        const MIN_SPEED = 0.15;
+        const MAX_SPEED = 5
+        const mousePad = document.querySelector('.mouse-touchpad');
+        const closeBtn = document.querySelector('.close');
+        const closeIcon = document.querySelector('#closeIcon');
+        var hammerEl = new Hammer(mousePad, {
+            touchAction: 'none',
+        });
+        buttonClick = async (key) => {
+            await fetch('/api/keyboard-press', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ key })
+            });
+        }
+        showTouchpad = () => {
+            mousePad.style.display = 'block';
+        }
+        closeBtn.addEventListener('click', (ev) => {
+            mousePad.style.display = 'none';
+        });
+
+        let dx = 0, dy = 0, dt = 0;
+        hammerEl.on('pan', (ev) => {
+            console.log(ev);
+            let scale = 0.04;
+            dx = ev.deltaX - dx;
+            dy = ev.deltaY - dy;
+            dt = ev.deltaTime - dt;
+            socket.emit('move-mouse', {
+                x: dx,
+                y: dy,
+            });
+            dx = ev.deltaX;
+            dy = ev.deltaY;
+            dt = ev.deltaTime;
+            if (ev.isFinal) {
+                dx = 0;
+                dy = 0;
+                dt = 0;
+            }
+        });
+
+        hammerEl.on('tap', async (ev) => {
+            if (ev.target === closeBtn || ev.target === closeIcon) {
+                return;
+            }
+            await fetch('/api/mouse-click', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

@@ -6,14 +6,28 @@ const cors = require('cors');
 const bot = require('robotjs')
 const path = require('path');
 const app = express();
-const {app: electronApp, BrowserWindow, Tray, Menu} = require('electron');
+const http = require('http');
+const server = http.createServer(app);
+const io = require('socket.io')(server);
+
+const { app: electronApp, BrowserWindow, Tray, Menu } = require('electron');
 let tray = null;
 let mainWindow = null;
 const port = 9876;
 
 app.use(cors("*"));
-app.use(bodyParse.urlencoded({extended: false}));
+app.use(bodyParse.urlencoded({ extended: false }));
 app.use(bodyParse.json());
+
+io.on('connection', (socket) => {
+    socket.on('move-mouse', (coor) => {
+        const mousePos = bot.getMousePos();
+        const tx = mousePos.x + coor.x;
+        const ty = mousePos.y + coor.y;
+        bot.moveMouse(Math.max(0, tx), Math.max(0, ty));
+    })
+    console.log('a user connected');
+});
 
 app.use('/', express.static(path.join(__dirname, 'statics/netflix-remote')));
 
@@ -21,11 +35,19 @@ app.use('/', express.static(path.join(__dirname, 'statics/netflix-remote')));
 app.post('/api/keyboard-press', (req, res) => {
     const key = req.body.key;
     bot.keyTap(key);
-    res.json({success: true});
+    res.json({ success: true });
 });
 
+app.post('/api/mouse-click', (req, res) => {
+    const double = req.body.double;
+    bot.mouseClick('left', double);
+    res.json({ success: true });
+});
 
-app.listen(port, () => {
+app.get('/api/screen-size', (req, res) => {
+    res.json(bot.getScreenSize());
+})
+server.listen(port, () => {
     console.log('SERVER IS UP!');
 });
 
