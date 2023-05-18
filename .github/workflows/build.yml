@@ -14,6 +14,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16
+      - run: cd netflix-remote-server 
+      - run: npm install
       - run: npm run make
       - name: "Publish release to github"
         run: npm run publish
