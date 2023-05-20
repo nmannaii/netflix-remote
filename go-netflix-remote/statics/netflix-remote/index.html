@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Netflix Remote</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="assets/netflix-remote.png" width="250">
+
+        <div class="remote-grid">
+            <div class="remote-cell danger" onclick="showTouchpad()">
+                <i class="fas fa-mouse"></i>
+            </div>
+            <div class="remote-cell light" onclick="buttonClick('up')">
+                <i class="fas fa-arrow-up"></i>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('f')">
+                <i class="fas fa-expand"></i>
+            </div>
+
+            <div class="remote-cell light" onclick="buttonClick('left')">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="remote-cell light" onclick="buttonClick('enter')">
+                <i class="fa-regular fa-circle-dot"></i>
+            </div>
+            <div class="remote-cell light" onclick="buttonClick('right')">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+            <div class="remote-cell" onclick="buttonClick('escape')">
+                ESC
+            </div>
+            <div class="remote-cell light" onclick="buttonClick('down')">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('s')">
+                <i class="fa-solid fa-forward-fast"></i>
+                Skip
+            </div>
+
+            <div class="remote-cell" onclick="buttonClick('left')">
+                <i class="fa-solid fa-backward"></i>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('space')">
+                <span>
+                    <i class="fa-solid fa-pause"></i>
+                    <i class="fa-solid fa-play"></i>
+                </span>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('right')">
+                <i class="fa-solid fa-forward"></i>
+            </div>
+
+            <div class="remote-cell" onclick="buttonClick('audio_vol_down')">
+                <i class="fa-solid fa-volume-low"></i>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('audio_mute')">
+                <i class="fa-solid fa-volume-xmark"></i>
+            </div>
+            <div class="remote-cell" onclick="buttonClick('audio_vol_up')">
+                <i class="fa-solid fa-volume-high"></i>
+            </div>
+        </div>
+    </div>
+    <div class="mouse-touchpad">
+        <button class="close">
+            <i class="fas fa-xmark" id="closeIcon"></i>
+        </button>
+    </div>
+
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="assets/hammer.min.js"></script>
+    <script>
+        var socket = io();
+        const MIN_SPEED = 0.15;
+        const MAX_SPEED = 5
+        const mousePad = document.querySelector('.mouse-touchpad');
+        const closeBtn = document.querySelector('.close');
+        const closeIcon = document.querySelector('#closeIcon');
+        var hammerEl = new Hammer(mousePad, {
+            touchAction: 'none',
+        });
+        buttonClick = async (key) => {
+            await fetch('/key-press', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ key })
+            });
+        }
+        showTouchpad = () => {
+            mousePad.style.display = 'block';
+        }
+        closeBtn.addEventListener('click', (ev) => {
+            mousePad.style.display = 'none';
+        });
+
+        let dx = 0, dy = 0, dt = 0;
+        hammerEl.on('pan', (ev) => {
+            console.log(ev);
+            let scale = 0.04;
+            dx = ev.deltaX - dx;
+            dy = ev.deltaY - dy;
+            dt = ev.deltaTime - dt;
+            socket.emit('move-mouse', JSON.stringify({x: dx, y: dy}));
+            dx = ev.deltaX;
+            dy = ev.deltaY;
+            dt = ev.deltaTime;
+            if (ev.isFinal) {
+                dx = 0;
+                dy = 0;
+                dt = 0;
+            }
+        });
+
+        hammerEl.on('tap', async (ev) => {
+            if (ev.target === closeBtn || ev.target === closeIcon) {
+                return;
+            }
+            await fetch('/api/mouse-click', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>
