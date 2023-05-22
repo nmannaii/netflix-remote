@@ -5,3 +5,7 @@
 export function GetIpAddressQrCode() {
   return window['go']['main']['App']['GetIpAddressQrCode']();
 }
+
+export function GetLocalIpAddress() {
+  return window['go']['main']['App']['GetLocalIpAddress']();
+}

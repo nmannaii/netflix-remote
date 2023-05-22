@@ -1,10 +1,11 @@
 package controllers
 
 import (
+	"log"
+
 	"github.com/gin-gonic/gin"
 	"github.com/go-vgo/robotgo"
 	"github.com/nmannaii/go-netflix-remote/dto"
-	"log"
 )
 
 func pressKey(context *gin.Context) {
@@ -18,6 +19,13 @@ func pressKey(context *gin.Context) {
 	})
 }
 
+func mouseClick(context *gin.Context) {
+	robotgo.Click()
+	context.JSON(200, gin.H{
+		"Success": true,
+	})
+}
 func GroupKeyPressRoutes(r *gin.Engine) {
 	r.POST("/key-press", pressKey)
+	r.POST("/mouse-click", mouseClick)
 }

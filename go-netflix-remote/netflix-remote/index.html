@@ -80,6 +80,7 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="assets/hammer.min.js"></script>
     <script>
+        console.log(window.location);
         var socket = io();
         const MIN_SPEED = 0.15;
         const MAX_SPEED = 5
@@ -127,7 +128,7 @@
             if (ev.target === closeBtn || ev.target === closeIcon) {
                 return;
             }
-            await fetch('/api/mouse-click', {
+            await fetch('/mouse-click', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
