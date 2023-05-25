@@ -36,6 +36,6 @@ jobs:
       - name: Create release
         working-directory: .\fyne-netflix-remote
         run: |
-          gh release create v1.5.0 -F netflix-remote.exe
+          gh release create v1.5.0 netflix-remote.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
