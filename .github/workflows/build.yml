@@ -7,7 +7,6 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - run: gh auth login --with-token ${{ secrets.ACCESS_TOKEN }}
       - name: Check out Git repository
         uses: actions/checkout@v1
       - name: Install Go
@@ -35,4 +34,8 @@ jobs:
         working-directory: .\fyne-netflix-remote
         run: fyne package -icon assets/icon.ico -name netflix-remote -appVersion 1.0.0 -appID io.netflix-remote -release
       - name: Create release
-        run: gh auth login --with-token ${{ secrets.ACCESS_TOKEN }}
+        working-directory: .\fyne-netflix-remote
+        run: |
+          gh release create v1.5.0 -F netflix-remote.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
