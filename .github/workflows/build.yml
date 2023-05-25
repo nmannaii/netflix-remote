@@ -15,6 +15,7 @@ jobs:
           dir D:\a\
           dir D:\a\mingw64
           echo "D:\a\mingw64\bin" >> $GITHUB_PATH
+      - run: gcc --version
       - name: Check out Git repository
         uses: actions/checkout@v1
       - name: Install Go
