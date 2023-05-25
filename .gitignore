@@ -1,3 +1,5 @@
 /.idea/
 /netflix-remote-server/node_modules/
 /netflix-remote-server/out/
+/fyne-netflix-remote/*.exe
+/fyne-netflix-remote/.idea/
