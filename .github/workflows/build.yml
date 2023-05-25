@@ -14,9 +14,7 @@ jobs:
           7z x D:\a\x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z -oD:\a\
           dir D:\a\
           dir D:\a\mingw64
-          set PATH=%PATH%;D:\a\mingw64
-          cd D:\a\mingw64
-          dir .
+          echo "D:\a\mingw64\bin" >> $GITHUB_PATH
       - name: Check out Git repository
         uses: actions/checkout@v1
       - name: Install Go
