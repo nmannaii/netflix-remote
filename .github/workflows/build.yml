@@ -14,12 +14,7 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: '^1.19.4'
-      - name: Install C complier
-        run: |
-          pacman -Syu
-          pacman -S git mingw-w64-x86_64-toolchain
-      - name: Set Path
-        run: echo "export PATH=\$PATH:/c/Program\ Files/Go/bin:~/Go/bin" >> ~/.bashrc
+      - uses: msys2/setup-msys2@v2
       - name: "Install dependencies"
         working-directory: .\fyne-netflix-remote
         run: |
