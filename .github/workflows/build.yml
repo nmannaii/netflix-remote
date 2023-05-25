@@ -7,14 +7,14 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Set GCC path
+        run: echo "PATH=$PATH:C:\msys64\mingw64\bin" >> $GITHUB_ENV
       - name: Check out Git repository
         uses: actions/checkout@v1
-
       - name: Install Go
         uses: actions/setup-go@v4
         with:
           go-version: '^1.19.4'
-      - uses: msys2/setup-msys2@v2
       - name: "Install dependencies"
         working-directory: .\fyne-netflix-remote
         run: |
