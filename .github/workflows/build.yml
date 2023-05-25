@@ -7,6 +7,12 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+      - name: Install Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '^1.19.4'
       - name: Set up MinGW
         run: |
           choco install wget -y
@@ -15,13 +21,10 @@ jobs:
           dir D:\a\
           dir D:\a\mingw64
           echo "D:\a\mingw64\bin" >> $GITHUB_PATH
+      - run: |
+          go env -w CC=D:\a\mingw64\bin\gcc
+          go env -w CXX=D:\a\mingw64\bin\g++
       - run: gcc --version
-      - name: Check out Git repository
-        uses: actions/checkout@v1
-      - name: Install Go
-        uses: actions/setup-go@v4
-        with:
-          go-version: '^1.19.4'
       - name: "Install dependencies"
         working-directory: .\fyne-netflix-remote
         run: |
