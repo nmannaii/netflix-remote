@@ -33,3 +33,5 @@ jobs:
       - name: "build binary"
         working-directory: .\fyne-netflix-remote
         run: fyne package -icon assets/icon.ico -name netflix-remote -appVersion 1.0.0 -appID io.netflix-remote -release
+      - name: Create release
+        run: gh auth login --with-token ${{ secrets.ACCESS_TOKEN }}
