@@ -9,20 +9,33 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
-
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
+      - name: Install Go
+        uses: actions/setup-go@v4
         with:
-          node-version: 16
-      - run: cd netflix-remote-server 
+          go-version: '^1.19.4'
+      - name: Set up MinGW
+        run: |
+          choco install wget -y
+          wget --content-disposition -P D:\a\ https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-win32/seh/x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z
+          7z x D:\a\x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z -oD:\a\
+          dir D:\a\
+          dir D:\a\mingw64
+          echo "D:\a\mingw64\bin" >> $GITHUB_PATH
+      - run: |
+          go env -w CC=D:\a\mingw64\bin\gcc
+          go env -w CXX=D:\a\mingw64\bin\g++
+      - run: gcc --version
       - name: "Install dependencies"
-        working-directory: .\netflix-remote-server 
-        run: npm install
+        working-directory: .\fyne-netflix-remote
+        run: |
+          go mod tidy
+          go install fyne.io/fyne/v2/cmd/fyne@latest
       - name: "build binary"
-        working-directory: .\netflix-remote-server
-        run: npm run make
-      - name: "Publish release to github"
-        working-directory: .\netflix-remote-server
-        run: npm run publish
+        working-directory: .\fyne-netflix-remote
+        run: fyne package -icon assets/icon.ico -name netflix-remote -appVersion 1.0.0 -appID io.netflix-remote -release
+      - name: Create release
+        working-directory: .\fyne-netflix-remote
+        run: |
+          gh release create v1.5.0 netflix-remote.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
