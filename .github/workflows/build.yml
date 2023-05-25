@@ -8,9 +8,11 @@ jobs:
 
     steps:
       - name: Set up MinGW
-        uses: egor-tensin/setup-mingw@v2
-        with:
-          platform: x64
+        run: |
+          wget -P c https://netix.dl.sourceforge.net/project/mingw-w64/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/sjlj/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7zhttps://netix.dl.sourceforge.net/project/mingw-w64/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/sjlj/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z
+          7z x c://x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z mingw
+          cd c://mingw
+          dir .
       - name: Check out Git repository
         uses: actions/checkout@v1
       - name: Install Go
