@@ -11,7 +11,7 @@ jobs:
         run: |
           choco install wget -y
           wget --content-disposition -P D:\a\ https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/sjlj/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z
-          7z x D:\a\x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z -o D:\a\mingw
+          7z x D:\a\x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z -oD:\a\mingw
           dir D:\a\
           cd D:\a\mingw
           dir .
