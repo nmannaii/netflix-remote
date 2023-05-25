@@ -7,8 +7,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Set GCC path
-        run: echo "PATH=$PATH:C:\msys64\mingw64\bin" >> $GITHUB_ENV
+      - name: Set up MinGW
+        uses: egor-tensin/setup-mingw@v2
+        with:
+          platform: x64
       - name: Check out Git repository
         uses: actions/checkout@v1
       - name: Install Go
