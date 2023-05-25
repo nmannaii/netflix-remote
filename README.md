@@ -12,7 +12,7 @@ app. Netflix remote is the way to go! 🚀.
 
 Just install the app by clicking on one of this link
 
-- [Windows](https://github.com/nmannaii/netflix-remote/releases/download/v1.0.0/netflix-remote-1.0.0.Setup.exe)
+- [Windows](https://github.com/nmannaii/netflix-remote/releases/download/v1.5.0/netflix-remote.exe)
 
 ## App screenshot
 <div align="center">
