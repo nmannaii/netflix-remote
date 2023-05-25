@@ -10,16 +10,15 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v1
 
-      - name: Install Node.js, NPM and Yarn
+      - name: Install Go
         uses: actions/setup-go@v4
         with:
-          node-version: 16
-      - run: cd fyne-netflix-remote 
+          go-version: '^1.19.4'
       - name: "Install dependencies"
         working-directory: .\fyne-netflix-remote
         run: |
           go mod tidy
           go install fyne.io/fyne/v2/cmd/fyne@latest
       - name: "build binary"
-        working-directory: .\netflix-remote-server
+        working-directory: .\fyne-netflix-remote
         run: fyne package -icon assets/icon.ico -name netflix-remote -appVersion 1.0.0 -appID io.netflix-remote -release
